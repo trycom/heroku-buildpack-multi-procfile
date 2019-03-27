@@ -8,18 +8,18 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-PROCFILE=$(cat ${ENV_DIR}/PROCFILE)
+APPFILE=$(cat ${ENV_DIR}/APPFILE)
 
 if [[ -z "${PROCFILE}" ]]; then
     echo "PROCFILE was not set. Aborting" | indent
     exit 1
 fi
 
-cp ${BUILD_DIR}/${PROCFILE} ${BUILD_DIR}/Procfile
+cp ${BUILD_DIR}/${APPFILE} ${BUILD_DIR}/App.json
 
 if ! [ $? ]; then
-    echo "FAILED to copy a Procfile" | indent
+    echo "FAILED to copy a App.json" | indent
     exit 1
 fi
 
-echo "Copied ${PROCFILE} as Procfile successfully" | indent
+echo "Copied ${APPFILE} as App.json successfully" | indent
