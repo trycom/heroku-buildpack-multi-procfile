@@ -8,18 +8,18 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-APPFILE=$(cat ${ENV_DIR}/APPFILE)
+APP_BASE=$(cat ${ENV_DIR}/APP_BASE)
 
-if [[ -z "${PROCFILE}" ]]; then
-    echo "PROCFILE was not set. Aborting" | indent
+if [[ -z "${APP_BASE}" ]]; then
+    echo "APP_BASE was not set. Aborting" | indent
     exit 1
 fi
 
-cp ${BUILD_DIR}/${APPFILE} ${BUILD_DIR}/App.json
+cp ${BUILD_DIR}/${APP_BASE} ${BUILD_DIR}/App.json
 
 if ! [ $? ]; then
     echo "FAILED to copy a App.json" | indent
     exit 1
 fi
 
-echo "Copied ${APPFILE} as App.json successfully" | indent
+echo "Copied ${APP_BASE} as App.json successfully" | indent
