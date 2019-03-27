@@ -15,11 +15,11 @@ if [[ -z "${APP_BASE}" ]]; then
     exit 1
 fi
 
-cp ${BUILD_DIR}/${APP_BASE} ${BUILD_DIR}/App.json
+cp ${BUILD_DIR}/${APP_BASE} ${BUILD_DIR}/app.json
 
 if ! [ $? ]; then
-    echo "FAILED to copy a App.json" | indent
+    echo "FAILED to copy a app.json" | indent
     exit 1
 fi
 
-echo "Copied ${APP_BASE} as App.json successfully" | indent
+echo "Copied ${APP_BASE} as app.json successfully" | indent
